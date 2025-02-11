@@ -1,0 +1,42 @@
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Ignore VS Code specific files
+.vscode/
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore compiled DLLs
+*.dll
+
+# Ignore compiled EXEs
+*.exe
+
+# Ignore compiled PDBs
+*.pdb
+
+# Ignore coverage reports
+coverage/
+
+# Ignore publish output
+publish/
+
+# Ignore Rider specific files
+.idea/
+*.sln.iml
