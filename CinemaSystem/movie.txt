@@ -1,0 +1,12 @@
+1|Echoes of Tomorrow|130
+2|Whispers in the Fog|98
+3|The Last Horizon|145
+4|Vortex of Silence|112
+5|Crimson Sky|118
+6|Veil of the Forgotten|105
+7|Starlight Journey|145
+8|Underworld Reign|130
+9|Fires of Oblivion|140
+10|Labyrinth of Lies|122
+11|Whispers of Eternity|125
+12|Into the Infinite Void|135
