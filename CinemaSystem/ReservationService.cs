@@ -101,5 +101,61 @@ public class ReservationService
         return reservations;
     }
 
+    public void ReserveSeat(string movieTitle, int row, int seatNumber, string customerName)
+    {
+        if (string.IsNullOrEmpty(movieTitle))
+        {
+            throw new Exception("Iveskite pilna pavadinima.");
+        }
 
+        if (string.IsNullOrEmpty(customerName))
+        {
+            throw new Exception("Iveskite varda.");
+        }
+
+        if (row < 1 || row > _maxRow)
+        {
+            throw new Exception ($"Pasirinkite eile nuo 1 iki {_maxRow}.");
+        }
+
+        if (seatNumber < 1 || seatNumber > _maxSeatNumberPerRow)
+        {
+            throw new Exception ($"Pasirinkite vieta nuo 1 iki {_maxSeatNumberPerRow}.");
+        }
+
+        Dictionary<string, Seat> availableSeat = GetAvailableSeats(movieTitle);
+
+        if (availableSeat.ContainsKey($"{row}-{seatNumber}"))
+        {
+            MovieService movieClass = new MovieService();
+            Movie movie = movieClass.GetOneByTitle(movieTitle);
+            int newId = NewIdForReservation();
+            File.AppendAllText(_reservationDatabase, $"\n{newId}|{movie.Id}|{row}|{seatNumber}|{customerName}");
+
+            Console.WriteLine($"Vieta {row}-{seatNumber} rezervuota sekmingai.");
+        }
+        
+        else
+        {
+        throw new Exception ("Vieta uzimta.");
+        }
+
+    }
+
+    private int NewIdForReservation()
+    {
+        List<Reservation> listReservation = GetReservations();
+        int maxId = 0;
+        foreach (Reservation reservation in listReservation)
+        {
+            if (reservation.Id > maxId)
+            {
+                maxId = reservation.Id;
+            }
+        }
+
+        maxId = maxId + 1;
+
+        return maxId;
+    }
 }

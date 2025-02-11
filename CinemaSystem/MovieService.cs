@@ -50,5 +50,22 @@ public class MovieService
         throw new Exception("Movie was not found");
     }
 
+    public Movie GetOneByTitle(string title)
+    {
+        List<Movie> movies = GetMovies();
+
+        foreach(Movie movie in movies)
+        {
+            if(movie.Title == title)
+            {
+                return movie;
+            }
+        }
+
+        throw new Exception("Movie was not found");
+    }
+
+
+
     
 }
