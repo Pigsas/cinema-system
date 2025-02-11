@@ -1,7 +1,11 @@
 using System;
-class Movie()
+
+namespace CinemaSystem
 {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public int Duration { get; set; }
+    class Movie()
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public int Duration { get; set; }
+    }
 }
