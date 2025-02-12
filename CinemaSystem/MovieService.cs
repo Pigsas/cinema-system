@@ -56,7 +56,7 @@ public class MovieService
 
         foreach(Movie movie in movies)
         {
-            if(movie.Title == title)
+            if(movie.Title.Equals(title, StringComparison.OrdinalIgnoreCase))
             {
                 return movie;
             }
