@@ -16,10 +16,13 @@ public class ReservationService
 
     public Dictionary<string, Seat> GetAvailableSeats(string movieTitle)
     {
-        if (string.IsNullOrEmpty(movieTitle))
+        if(string.IsNullOrEmpty(movieTitle))
         {
             throw new Exception("Movie title cannot be empty");
         }
+
+        MovieService movieService = new MovieService();
+        movieService.GetOneByTitle(movieTitle);
 
         Dictionary<string, Seat> reservedSeats = GetReservedSeatsByMovie(movieTitle);
         Dictionary<string, Seat> availableSeats = new Dictionary<string, Seat>();
